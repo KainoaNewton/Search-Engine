@@ -37,5 +37,5 @@ This project is licensed under the Mit License - see the LICENSE.md file for det
 Inspiration, code snippets, etc.
 
 - [Coding Help](https://gemini.google.com)
-- [Main Design Inspiration]([https://search.brave.com/])
-- [Origional Idea]([https://support.google.com/chrome/answer/95426?hl=en&co=GENIE.Platform%3DDesktop])
+- [Main Design Inspiration](https://search.brave.com/)
+- [Origional Idea](https://support.google.com/chrome/answer/95426?hl=en&co=GENIE.Platform%3DDesktop)
