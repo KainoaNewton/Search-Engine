@@ -22,34 +22,52 @@
                     d="m249-207-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z" />
             </svg>
         </button>
-        <div id="settings-title">
-            <h3 style="margin-inline: auto;">Customize Search Stuff to your liking!</h3>
-        </div>
-        <div id="settings-tabs">
-            <button>
-                <h5>Search Engines</h5>
-            </button>
-            <button>
-                <h5>AI</h5>
-            </button>
-        </div>
-        <div id="settings-content">
-            <div id="searchEngines" class="list-group">
-                <div class="list-group-item">This is <a href="http://rubaxa.github.io/Sortable/">Sortable</a></div>
-                <div class="list-group-item">It works with Bootstrap...</div>
-                <div class="list-group-item">...out of the box.</div>
-                <div class="list-group-item">It has support for touch devices.</div>
-                <div class="list-group-item">Just drag some elements around.</div>
-                <div class="list-group-item"></div>
-                <div class="list-group-item"></div>
-                <div class="list-group-item"></div>
-                <div class="list-group-item"></div>
-                <div class="list-group-item"></div>
-                <div class="list-group-item"></div>
-                <div class="list-group-item"></div>
-                <div class="list-group-item"></div>
+        <h3 style="width: 100%;">Customize Search Stuff to your liking!</h3>
+        <h5 style="margin-left: 8%;">General</h5>
+        <div id="general-settings">
+            <div class="general-setting">
+                <input type="checkbox" id="gemini-feature">
+                <label for="gemini-feature">Gemini AI Search</label>
             </div>
-            <div id="ai-settings"></div>
+            <div class="general-setting">
+                <input type="checkbox" id="new-tab">
+                <label for="new-tab">Open searches In A New Tab</label>
+            </div>
+        </div>
+        <h5 style="margin-left: 8%;">Search Engines</h5>
+        <div id="engines">
+            <div class="engine">
+                <input type="checkbox" id="google-checkbox" checked>
+                <label for="google-checkbox">Google</label>
+            </div>
+            <div class="engine">
+                <input type="checkbox" id="bing-checkbox" checked>
+                <label for="bing-checkbox">Bing</label>
+            </div>
+            <div class="engine">
+                <input type="checkbox" id="yahoo-checkbox" checked>
+                <label for="yahoo-checkbox">Yahoo</label>
+            </div>
+            <div class="engine">
+                <input type="checkbox" id="yandex-checkbox" checked>
+                <label for="yandex-checkbox">Yandex</label>
+            </div>
+            <div class="engine">
+                <input type="checkbox" id="duckduckgo-checkbox" checked>
+                <label for="duckduckgo-checkbox">DuckDuckGo</label>
+            </div>
+            <div class="engine">
+                <input type="checkbox" id="brave-checkbox" checked>
+                <label for="brave-checkbox">Brave</label>
+            </div>
+            <div class="engine">
+                <input type="checkbox" id="youtube-checkbox" checked>
+                <label for="youtube-checkbox">Youtube</label>
+            </div>
+            <div class="engine">
+                <input type="checkbox" id="startpage-checkbox" checked>
+                <label for="startpage-checkbox">Startpage</label>
+            </div>
         </div>
     </dialog>
     <button onclick="settings()" id="settings-btn">
@@ -74,7 +92,7 @@
                             d="m249-207-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z" />
                     </svg>
                 </button>
-                <p>|</p>
+                <p id="search-divider">|</p>
                 <button onclick="geminiSearch()" id="ai-answer">
                     <svg viewBox="0 0 1080 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -115,8 +133,10 @@
                 <img class="result-img" src="youtube.ico" alt="">
                 Youtube
             </buttton>
-            <buttton onclick="alert('Sorry but we are still working on adding more supported search engines.');"
-                class="choose-btn">More</buttton>
+            <buttton class="choose-btn" id="startpage">
+                <img class="result-img" src="startpage.ico" alt="">
+                Startpage
+            </buttton>
         </div>
     </main>
     <footer></footer>

@@ -3,6 +3,11 @@
 html {
 	font-family: "Poppins";
 	font-weight: 400;
+	-ms-overflow-style: none; /* IE and Edge */
+	scrollbar-width: none; /* Firefox */
+	::-webkit-scrollbar {
+		display: none;
+	}
 }
 
 h1,
@@ -81,6 +86,8 @@ body {
 
 #settings-dialog {
 	flex-wrap: wrap;
+	justify-content: left;
+	align-items: start;
 	padding: 0;
 	position: fixed;
 	margin: auto;
@@ -92,7 +99,8 @@ body {
 	color: var(--text);
 	font-size: 20px;
 	text-align: center;
-	overflow: hidden;
+	overflow-x: hidden;
+	overflow-y: scroll;
 }
 
 #settings-dialog button {
@@ -279,12 +287,12 @@ button:focus {
 }
 
 .choose-btn {
-	display: flex;
+	display: none;
 	gap: 10px;
 	padding-inline: 15px;
 	align-items: center;
 	justify-content: center;
-	border: 1px solid rgb(from var(--accent) r g b / 0.5);
+	border: 2px solid rgb(from var(--accent) r g b / 0.5);
 	border-radius: 12px;
 	box-sizing: border-box;
 	background-color: var(--background);
@@ -305,12 +313,16 @@ button:focus {
 	border-color: var(--accent);
 }
 
+.visible {
+	display: flex;
+}
+
 .result-img {
 	width: 30px;
 	height: 30px;
 }
 
-.active {
+#results-from .active {
 	background: linear-gradient(
 		to bottom right,
 		rgba(171, 196, 183, 1) 0%,
@@ -354,75 +366,32 @@ dialog button:hover {
 	border: 2px solid rgb(from var(--accent) r g b / 0.5);
 }
 
-#settings-title {
-	display: flex;
-	align-items: start;
-	justify-content: start;
-	height: 20vh;
-	width: 80vw;
-	box-sizing: border-box;
-	border-radius: 16px;
+#engines {
+	width: 100%;
 }
 
-#settings-tabs {
+.engine {
 	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
-	justify-content: center;
-	width: 10vw;
-	height: 60vh;
-	box-sizing: border-box;
-	border-radius: 16px;
-}
-
-#settings-tabs button {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 10vw;
-	height: 30vh;
+	width: 100%;
 	margin: 0;
-	box-sizing: border-box;
-}
-
-#searchEngines {
-	display: flex;
-	flex-wrap: wrap;
-	list-style-type: none;
-	justify-content: center;
-	align-items: center;
-	width: 66vw;
-	height: 56vh;
-	gap: 1vw;
-	border-radius: 16px;
-	margin-block: 2vh;
-	margin-inline: 2vw;
-	background-color: var(--background);
 	padding: 0;
+	margin-left: 10%;
+	justify-content: left;
+	align-items: center;
+	gap: 1%;
 }
 
-#searchEngines div {
+#general-settings {
+	width: 100%;
+}
+
+.general-setting {
 	display: flex;
-	justify-content: center;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	margin-left: 10%;
+	justify-content: left;
 	align-items: center;
-	width: 15vw;
-	height: 10vh;
-	background-color: var(--bg-secondary);
-	color: var(--text);
-	cursor: grab;
-}
-
-#ai-settings {
-	display: none;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	width: 60vw;
-	height: 50vh;
-	box-sizing: border-box;
-	border-radius: 16px;
-	margin: auto;
-	margin-block: 5vh;
-	margin-inline: 5vw;
-	background-color: var(--background);
+	gap: 1%;
 }
