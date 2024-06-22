@@ -365,3 +365,35 @@ checkboxes.forEach((checkbox) => {
 window.onload = function () {
 	clearSearchInput();
 };
+
+const geminiFeatureCheckbox = document.getElementById("gemini-feature");
+const aiAnswerElement = document.getElementById("ai-answer");
+const searchDividerElement = document.getElementById("search-divider");
+
+// 1. Load saved state from localStorage
+const storedState = localStorage.getItem("geminiFeatureEnabled");
+
+// 2. Pre-check the checkbox and update visibility based on saved state
+if (storedState === "true") {
+	geminiFeatureCheckbox.checked = true;
+	aiAnswerElement.style.display = "block";
+	searchDividerElement.style.display = "block";
+} else {
+	geminiFeatureCheckbox.checked = false;
+	aiAnswerElement.style.display = "none";
+	searchDividerElement.style.display = "none";
+}
+
+// 3. Update visibility based on checkbox change (unchanged from previous solution)
+geminiFeatureCheckbox.addEventListener("change", function () {
+	const isChecked = this.checked;
+	localStorage.setItem("geminiFeatureEnabled", isChecked); // Save to localStorage
+
+	if (isChecked) {
+		aiAnswerElement.style.display = "block";
+		searchDividerElement.style.display = "block";
+	} else {
+		aiAnswerElement.style.display = "none";
+		searchDividerElement.style.display = "none";
+	}
+});
