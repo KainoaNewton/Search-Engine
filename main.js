@@ -28,12 +28,16 @@ const bing = document.getElementById("bing");
 const yahoo = document.getElementById("yahoo");
 const yandex = document.getElementById("yandex");
 const duckduckgo = document.getElementById("duckduckgo");
+const brave = document.getElementById("brave");
+const youtube = document.getElementById("youtube");
 
 google.addEventListener("click", () => setActiveButton(google.id)); // Passing button ID
 bing.addEventListener("click", () => setActiveButton(bing.id)); // Passing button ID
 yahoo.addEventListener("click", () => setActiveButton(yahoo.id)); // Passing button ID
 yandex.addEventListener("click", () => setActiveButton(yandex.id)); // Passing button ID
 duckduckgo.addEventListener("click", () => setActiveButton(duckduckgo.id)); // Passing button ID
+brave.addEventListener("click", () => setActiveButton(brave.id)); // Passing button ID
+youtube.addEventListener("click", () => setActiveButton(youtube.id)); // Passing button ID
 
 function setActiveButton(buttonId) {
 	// Get the active buttons list from localStorage (or create an empty list if it doesn't exist)
@@ -138,6 +142,22 @@ function duckduckgoSearch() {
 	window.location.href = url;
 }
 
+function braveSearch() {
+	var text = document.getElementById("searchinput").value;
+	var cleanQuery = text.replace(" ", "+", text);
+	var url = "https://search.brave.com/search?q=" + cleanQuery;
+
+	window.location.href = url;
+}
+
+function youtubeSearch() {
+	var text = document.getElementById("searchinput").value;
+	var cleanQuery = text.replace(" ", "+", text);
+	var url = "https://www.youtube.com/results?search_query=" + cleanQuery;
+
+	window.location.href = url;
+}
+
 const geminiDialog = document.getElementById("gemini-setup-dialog");
 const yesButton = document.getElementById("yes-button");
 const showMeHowButton = document.getElementById("show-me-how-button");
@@ -165,8 +185,12 @@ const closeButton = document.getElementById("close-button");
 
 function settings() {
 	settingsDialog.showModal(); // Display the dialog
+	settingsDialog.style.display = "flex";
 
 	closeButton.addEventListener("click", () => {
 		settingsDialog.close(); // Close the dialog
+		settingsDialog.style.display = "none";
 	});
 }
+
+Sortable.create(searchEngines, {});
