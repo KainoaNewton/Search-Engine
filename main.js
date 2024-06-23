@@ -233,68 +233,6 @@ function settings() {
 	});
 }
 
-// const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-// const STORAGE_KEY = "checkedEngines"; // Key for local storage
-
-// function getCheckedEnginesFromStorage() {
-// 	const storedData = localStorage.getItem(STORAGE_KEY);
-// 	try {
-// 		return storedData ? JSON.parse(storedData) : []; // Parse stored data or return empty array
-// 	} catch (error) {
-// 		console.error("Error parsing stored engine data:", error);
-// 		return []; // Return empty array on parsing error
-// 	}
-// }
-
-// function setCheckedEnginesToStorage(checkedEngines) {
-// 	localStorage.setItem(STORAGE_KEY, JSON.stringify(checkedEngines));
-// }
-
-// function updateEngineVisibility(checkbox, engineId) {
-// 	const targetElement = document.getElementById(engineId);
-
-// 	if (checkbox.checked) {
-// 		// Add "visible" class if it doesn't exist
-// 		if (!targetElement.classList.contains("visible")) {
-// 			targetElement.classList.add("visible");
-// 		}
-// 	} else {
-// 		// Remove "visible" class if it exists
-// 		targetElement.classList.remove("visible");
-// 	}
-// }
-
-// // Load previously checked engines from local storage (if any)
-// const checkedEngines = getCheckedEnginesFromStorage();
-
-// // Set initial checkbox states based on saved data
-// checkboxes.forEach((checkbox) => {
-// 	const engineId = checkbox.id.replace(/-checkbox$/, "");
-// 	checkbox.checked = checkedEngines.includes(engineId);
-// });
-
-// checkboxes.forEach((checkbox) => {
-// 	checkbox.addEventListener("change", function () {
-// 		const engineId = this.id.replace(/-checkbox$/, "");
-// 		const isChecked = this.checked;
-
-// 		// Update checked engine list in storage
-// 		const currentCheckedEngines = getCheckedEnginesFromStorage();
-// 		if (isChecked) {
-// 			currentCheckedEngines.push(engineId);
-// 		} else {
-// 			const index = currentCheckedEngines.indexOf(engineId);
-// 			if (index > -1) {
-// 				currentCheckedEngines.splice(index, 1);
-// 			}
-// 		}
-// 		setCheckedEnginesToStorage(currentCheckedEngines);
-
-// 		// Update visibility of the corresponding element
-// 		updateEngineVisibility(checkbox, engineId);
-// 	});
-// });
-
 const checkboxes = document.querySelectorAll('input[type="checkbox"]');
 const STORAGE_KEY = "checkedEngines"; // Key for local storage
 
@@ -376,13 +314,21 @@ const storedState = localStorage.getItem("geminiFeatureEnabled");
 
 // 2. Pre-check the checkbox and update visibility based on saved state
 if (storedState === "true") {
+	// No stored state, check the box and show elements
 	geminiFeatureCheckbox.checked = true;
 	aiAnswerElement.style.display = "block";
 	searchDividerElement.style.display = "block";
 } else {
-	geminiFeatureCheckbox.checked = false;
-	aiAnswerElement.style.display = "none";
-	searchDividerElement.style.display = "none";
+	// Existing logic based on stored state (unchanged)
+	if (storedState === "false") {
+		geminiFeatureCheckbox.checked = false;
+		aiAnswerElement.style.display = "none";
+		searchDividerElement.style.display = "none";
+	} else {
+		geminiFeatureCheckbox.checked = true;
+		aiAnswerElement.style.display = "block";
+		searchDividerElement.style.display = "block";
+	}
 }
 
 // 3. Update visibility based on checkbox change (unchanged from previous solution)
