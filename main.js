@@ -270,6 +270,23 @@ checkboxes.forEach((checkbox) => {
 });
 
 function checkOnLoad() {
+	const checkedEngines = getCheckedEnginesFromStorage();
+
+	// Check if there are no stored engines (empty array)
+	if (checkedEngines.length === 0) {
+		// No stored data, check all engines by default
+		checkboxes.forEach((checkbox) => {
+			checkbox.checked = true;
+		});
+	} else {
+		// Existing logic to set state based on stored data (unchanged)
+		checkboxes.forEach((checkbox) => {
+			const engineId = checkbox.id.replace(/-checkbox$/, "");
+			checkbox.checked = checkedEngines.includes(engineId);
+		});
+	}
+
+	// Update visibility of engine elements based on checkbox state
 	checkboxes.forEach((checkbox) => {
 		const engineId = checkbox.id.replace(/-checkbox$/, "");
 		updateEngineVisibility(checkbox, engineId);
