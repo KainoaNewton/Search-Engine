@@ -278,9 +278,37 @@ button:focus {
 	font-weight: 400;
 }
 
+#results-title {
+	text-align: center;
+	width: 60%;
+}
+
+@media only screen and (max-width: 1240px) {
+	.choose-btn img {
+		display: none;
+	}
+}
+
+@media only screen and (max-width: 890px) {
+	.choose-btn {
+		font-size: 10px;
+	}
+}
+
+@media only screen and (max-width: 435px) {
+	.choose-btn p {
+		display: none;
+	}
+	.choose-btn img {
+		display: block;
+	}
+}
+
 #results-from {
 	width: 51vw;
 	display: flex;
+	justify-content: center;
+	align-items: center;
 	flex-wrap: wrap;
 	gap: 1vw;
 	margin-inline: 20vw;
@@ -302,11 +330,7 @@ button:focus {
 	cursor: pointer;
 	width: 12vw;
 	height: 8vh;
-}
-
-.choose-btn svg {
-	fill: var(--accent);
-	width: 20px;
+	min-width: 108px;
 }
 
 .choose-btn:hover {

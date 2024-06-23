@@ -98,7 +98,8 @@ function runActiveButtonSearches() {
 		if (typeof searchFunction === "function") {
 			searchFunction(openLinksInNewTab); // Pass openLinksInNewTab state
 		} else {
-			console.warn("Search function", firstButtonId + "Search", "not found.");
+			googleSearch(openLinksInNewTab); // Default to Google search
+			console.warn("No search engine selected, defaulting to google...");
 		}
 	}
 }
